@@ -1,0 +1,352 @@
+.index_main_container {
+  width: 100%;
+  height: 100vh;
+  background-color: blue;
+  position: relative;
+}
+
+.index_main_container_child_image_div1 {
+  width: 250px;
+  height: 180px;
+  background-color: green;
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(10deg);
+  background-image: url("../assests/image1.avif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.index_main_container_child_image_div2 {
+  width: 250px;
+  height: 180px;
+  background-color: green;
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-10deg);
+  background-image: url("../assests/image2.avif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.index_main_container_child_image_div3 {
+  width: 250px;
+  height: 180px;
+  background-color: green;
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(20deg);
+  background-image: url("../assests/image3.avif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.index_main_container_child_image_div4 {
+  width: 250px;
+  height: 180px;
+  background-color: green;
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-20deg);
+  /* background-image: url("../assests/image4.avif"); */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  overflow: hidden;
+  opacity: 0;
+  background-color: red;
+}
+
+.index_main_container_child_loadernumber {
+  font-size: 22px;
+  font-weight: 600;
+  color: white;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Poppins";
+  opacity: 1;
+}
+
+.index_main_container_child_loader_div {
+  width: 0%;
+  height: 10px;
+  background-color: black;
+  position: absolute;
+  top: 99%;
+  left: 0%;
+  /* transform: translate(-50%, -50%); */
+  /* padding: 10px; */
+  border-radius: 10px;
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------- */
+
+.index_main_container_child_image_div4_heading_div {
+  color: white;
+  opacity: 0;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  transition: all 1s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-color: orange; */
+  /* width: 100%; */
+}
+
+.index_main_container_child_image_div4_heading_div > h1:nth-child(1) {
+  opacity: 0;
+  font-size: 3vw;
+  font-weight: 600;
+  font-family: "Poppins";
+}
+
+.index_main_container_child_image_div4_heading_div > h1:nth-child(2) {
+  opacity: 0;
+  font-size: 2vw;
+  font-weight: 600;
+  font-family: "Poppins";
+}
+
+.index_main_container_child_image_div4_heading_div > p {
+  opacity: 0;
+  width: 60%;
+  text-align: center;
+  font-size: 1vw;
+  font-family: "Poppins";
+}
+
+.index_main_container_child_image_div4_heading_div > button {
+  opacity: 0;
+  /* width: 70%; */
+  text-align: center;
+  font-size: 0.7vw;
+  font-family: "Poppins";
+  border-radius: 10px;
+  border: none;
+  background-color: white;
+  color: black;
+  padding: 10px 40px;
+  margin-top: 12px;
+}
+
+.index_main_container_child_image_div4_heading_div_span{
+    font-size: 5vw;
+    font-weight: 600;
+    font-family: "Poppins";
+    transition: all 1s ease;
+    opacity: 0;
+    animation: span_animation 1s ease infinite 1s;
+    margin-top: 20px;
+}
+
+
+
+/* .index_main_container_child_image_div4_heading_div_span */
+
+@keyframes span_animation {
+  0%{
+    transform: translateY(20px);
+  }
+  100%{
+    transform: translateY(0px);
+  }
+}
+
+/* --------------------------------------------------------------------------------------------------- */
+
+
+.Home_main_container {
+  width: 100%;
+  height: 100vh;
+  background-color: blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+
+
+/* Scroll container setup */
+[data-scroll-container] {
+  position: relative;
+  height: 100%;
+}
+
+[data-scroll-section] {
+  position: relative;
+  width: 100vw;
+  /* height: 100vh; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Hero Section */
+.index-hero {
+  height: 100vh;
+  background-color: yellow;
+}
+
+.index-hero .index-hero-img {
+  width: 50%;
+  aspect-ratio: 1;
+}
+
+/* Main Content Area */
+.index-main {
+  width: 100vw;
+  /* height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Rows and Cards */
+.index-row {
+  position: relative;
+  width: 100vw;
+  margin: 1em 0;
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+}
+
+.index-card {
+  width: 40px;
+  height: 360px;
+  border-radius: 0.75em;
+  overflow: hidden;
+  will-change: transform;
+}
+
+/* Main Content */
+.index-main-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Logo Styling */
+.index-logo {
+  width: 150px;
+  height: 150px;
+  border: 2px solid #FFF;
+  border-radius: 100%;
+  overflow: hidden;
+  transform: scale(0); /* Can be animated later */
+}
+
+/* Text Content and Animation Setup */
+.index-copy {
+  margin: 2em 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.index-line {
+  margin: 0.5em 0;
+  width: max-content;
+  height: 28px;
+}
+
+.index-line p {
+  font-size: 24px;
+  transform: translateY(30px); /* Can be animated later */
+}
+
+/* Button Styles */
+.index-btn button {
+  padding: 1em 2em;
+  font-size: 18px;
+  color: #FFF;
+  background-color: transparent;
+  border: 2px solid #FFF;
+  border-radius: 8em;
+  transform: translateY(30px);
+  opacity: 0; /* Initially hidden, can animate in */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.index-btn button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Footer Section */
+.index-footer {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.index-footer-link {
+  font-size: 4vw;
+  color: #FFF;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.index-footer-link:hover {
+  color: #ccc;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 900px) {
+  .card {
+    width: 50%;
+    height: 240px;
+  }
+}
+
+/* @media (max-width: 600px) {
+  .hero .img {
+    width: 80%;
+  }
+
+  .logo {
+    width: 100px;
+    height: 100px;
+  }
+
+  button {
+    padding: 0.75em 1.5em;
+    font-size: 16px;
+  }
+
+  .footerLink {
+    font-size: 6vw;
+  }
+} */
+
+
