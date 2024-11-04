@@ -207,12 +207,42 @@
 .index-hero {
   height: 100vh;
   background-color: yellow;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 40px 40px;
 }
 
-.index-hero .index-hero-img {
-  width: 50%;
-  aspect-ratio: 1;
+.hero-content-box{
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  background-color: red;
 }
+
+.dividediv{
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.dividediv>p:nth-child(1){
+  width: 40%;
+}
+
+.socialdiv{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px
+}
+
+
+/* .dividediv_section{
+  margin-left: 150px;
+} */
+
 
 /* Main Content Area */
 .index-main {
