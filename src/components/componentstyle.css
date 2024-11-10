@@ -64,7 +64,6 @@
   top: 85%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(-20deg);
-  /* background-image: url("../assests/image4.avif"); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -93,8 +92,6 @@
   position: absolute;
   top: 99%;
   left: 0%;
-  /* transform: translate(-50%, -50%); */
-  /* padding: 10px; */
   border-radius: 10px;
 }
 
@@ -113,8 +110,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* background-color: orange; */
-  /* width: 100%; */
 }
 
 .index_main_container_child_image_div4_heading_div > h1:nth-child(1) {
@@ -141,7 +136,6 @@
 
 .index_main_container_child_image_div4_heading_div > button {
   opacity: 0;
-  /* width: 70%; */
   text-align: center;
   font-size: 0.7vw;
   font-family: "Poppins";
@@ -165,7 +159,6 @@
 
 
 
-/* .index_main_container_child_image_div4_heading_div_span */
 
 @keyframes span_animation {
   0%{
@@ -176,7 +169,6 @@
   }
 }
 
-/* --------------------------------------------------------------------------------------------------- */
 
 
 .Home_main_container {
@@ -189,7 +181,6 @@
 }
 
 
-/* Scroll container setup */
 [data-scroll-container] {
   position: relative;
   height: 100%;
@@ -198,155 +189,272 @@
 [data-scroll-section] {
   position: relative;
   width: 100vw;
-  /* height: 100vh; */
   display: flex;
   justify-content: center;
   align-items: center;
 }
-/* Hero Section */
 .index-hero {
   height: 100vh;
   background-color: yellow;
-}
-
-.index-hero .index-hero-img {
-  width: 50%;
-  aspect-ratio: 1;
-}
-
-/* Main Content Area */
-.index-main {
-  width: 100vw;
-  /* height: 100vh; */
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-}
-
-/* Rows and Cards */
-.index-row {
+  justify-content: space-between;
+  padding: 40px 100px;
+  overflow: hidden;
   position: relative;
-  width: 100vw;
-  margin: 1em 0;
+}
+
+.hero-content-box{
+  width: 40%;
   display: flex;
-  justify-content: center;
-  gap: 2em;
+  flex-direction: column;
+  background-color: red;
 }
 
-.index-card {
-  width: 40px;
-  height: 360px;
-  border-radius: 0.75em;
+.profile_image{
+  width: 30%;
+  height: 75%;
+  background-color: black;
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
   overflow: hidden;
-  will-change: transform;
+  visibility: hidden;
 }
-
-/* Main Content */
-.index-main-content {
+.img-overlay {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: white;
+  z-index: 1;
+}
+
+.profile_image > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  z-index: 0;
+}
+
+
+.dividediv{
+  width: 100%;
+  background-color: white;
   display: flex;
-  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  text-align: center;
+}
+.dividediv>p:nth-child(1){
+  width: 40%;
 }
 
-/* Logo Styling */
-.index-logo {
-  width: 150px;
-  height: 150px;
-  border: 2px solid #FFF;
-  border-radius: 100%;
-  overflow: hidden;
-  transform: scale(0); /* Can be animated later */
+.socialdiv{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px
 }
 
-/* Text Content and Animation Setup */
-.index-copy {
-  margin: 2em 0;
+.index-main {
+  width: 100%;
+  pad: 20px;
+  height: 100vh;
+  background-color: blue;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.index-line {
-  margin: 0.5em 0;
-  width: max-content;
-  height: 28px;
-}
 
-.index-line p {
-  font-size: 24px;
-  transform: translateY(30px); /* Can be animated later */
-}
+/* ------------------------------------------------------------------- */
 
-/* Button Styles */
-.index-btn button {
-  padding: 1em 2em;
-  font-size: 18px;
-  color: #FFF;
-  background-color: transparent;
-  border: 2px solid #FFF;
-  border-radius: 8em;
-  transform: translateY(30px);
-  opacity: 0; /* Initially hidden, can animate in */
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.index-btn button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* Footer Section */
-.index-footer {
-  height: 50vh;
+.Projects_container{
+  width: 100%;
+  height: 100%;
+  background-color: purple;
   display: flex;
+}
+
+.Projects_Leftcontainer{
+  width: 25%;
+  height: 100%;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  padding-left: 40px;
 }
 
-.index-footer-link {
-  font-size: 4vw;
-  color: #FFF;
-  text-decoration: none;
-  transition: color 0.3s ease;
+
+
+
+.Projects_Leftcontainer>h3{
+  color: white;
 }
 
-.index-footer-link:hover {
-  color: #ccc;
+.Projects_Leftcontainer>p{
+  text-align: left;
+  width: 75%;
+  color: white;
 }
 
-/* Media queries for responsive design */
-@media (max-width: 900px) {
-  .card {
-    width: 50%;
-    height: 240px;
-  }
+.Projects_Leftcontainer>span{
+  text-align: left;
+  font-size: 30px;
+  width: 75%;
+  color: white;
 }
 
-/* @media (max-width: 600px) {
-  .hero .img {
-    width: 80%;
-  }
+.Projects_rightcontainer {
+  width: 75%;
+  height: 100%;
+  background-color: red;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap; 
+  overflow-y: hidden;
+  overflow-x: auto;
+  scroll-behavior: smooth; /* Smooth scrolling */
+}
 
-  .logo {
-    width: 100px;
-    height: 100px;
-  }
+.Projects_box {
+  min-width: 35%; /* Ensures each box has a minimum width for horizontal scroll */
+  height: 55%;
+  background-color: orange;
+  border-radius: 10px;
+  margin: 0px 50px; /* Space between boxes */
+  transition: transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
 
-  button {
-    padding: 0.75em 1.5em;
-    font-size: 16px;
-  }
+.Projects_box:hover {
+  transform: scale3d(1.1, 1.1, 1.1);
+}
 
-  .footerLink {
-    font-size: 6vw;
-  }
-} */
+/* Optional: Customize the scrollbar */
+.Projects_rightcontainer::-webkit-scrollbar {
+  height: 8px;
+}
+
+.Projects_rightcontainer::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+
+.Projects_rightcontainer::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
 
 
+/* -*--------------------------------------------------------Certificates */
+.Certificates_container {
+  width: 100%;
+  height: 100%;
+  background-color: purple;
+  display: flex;
+}
+
+.Certificates_Leftcontainer {
+  width: 25%;
+  height: 100%;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 40px;
+}
+
+.Certificates_Leftcontainer > h3 {
+  color: white;
+}
+
+.Certificates_Leftcontainer > p {
+  text-align: left;
+  width: 75%;
+  color: white;
+}
+
+.Certificates_Leftcontainer > span {
+  text-align: left;
+  font-size: 30px;
+  width: 75%;
+  color: white;
+}
+
+.Certificates_rightcontainer {
+  width: 75%;
+  height: 100%;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  overflow-y: hidden;
+  direction: rtl;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.Certificates_box {
+  min-width: 35%;
+  height: 55%;
+  background-color: orange;
+  border-radius: 10px;
+  margin: 0px 50px;
+  transition: transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.Certificates_box:hover {
+  transform: scale3d(1.1, 1.1, 1.1);
+}
+
+/* Optional: Customize the scrollbar */
+.Certificates_rightcontainer::-webkit-scrollbar {
+  height: 8px;
+}
+
+.Certificates_rightcontainer::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+
+.Certificates_rightcontainer::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+
+/* --------------------------------------------------------------ExperienceCont_container */
+
+
+.ExperienceCont_container{
+  width: 100%;
+  height: 100%;
+  background-color: yellow;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px;
+}
+
+.ExperienceCont_Left{
+  width: 35%;
+  height: 100%;
+  background-color: black;
+}
+
+.ExperienceCont_CenterLine{
+  padding: 4px;
+  height: 100%;
+  background-color: blue;
+  border-radius: 10px;
+}
+
+.ExperienceCont_Right{
+  width: 35%;
+  height: 100%;
+  background-color: aqua;
+}

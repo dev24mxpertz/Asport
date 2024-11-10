@@ -4,37 +4,20 @@ import "./componentstyle.css";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import LocomotiveScroll from "locomotive-scroll";
-import img1 from "../assests/logo1.png";
-import img2 from "../assests/logo2.png";
-import img3 from "../assests/logo2.png";
-import img4 from "../assests/logo2.png";
-import img5 from "../assests/logo2.png";
-import img6 from "../assests/logo2.png";
 import { Link } from "react-router-dom";
+import Projects from "./Projects";
+import Certificates from "./Certificates";
+import ExperienceCont from "./ExperienceCont";
 
 const Index = () => {
   const [loadernumber, setloadernumber] = useState(0);
   const [showHome, setshowHome] = useState(false);
-  const scrollRef = useRef(null); // Ref for locomotive scroll container
-  const homeRef = useRef(null); // Separate ref for Home component
+  const scrollRef = useRef(null); 
+  const homeRef = useRef(null); 
+const imagecontainerRef = useRef(null);
+const imageRef = useRef(null);
+const overlayRef = useRef(null);
 
-  const generateRows = () => {
-    const rows = [];
-    const images = [img1, img2, img3, img4, img5, img6]; // Array of imported images
-    for (let i = 0; i < 3; i++) {
-      rows.push(
-        <div className="row" key={i}>
-          <div className="card card-left">
-            <img src={images[2 * i]} alt={`img-${2 * i + 1}`} />
-          </div>
-          <div className="card card-right">
-            <img src={images[2 * i + 1]} alt={`img-${2 * i + 2}`} />
-          </div>
-        </div>
-      );
-    }
-    return rows;
-  };
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -44,7 +27,7 @@ const Index = () => {
       smooth: true,
       smoothMobile: true,
       getDirection: true,
-      multiplier: 1, // Control scroll speed multiplier if needed
+      multiplier: 1,
     });
 
     scroll.on("scroll", ScrollTrigger.update);
@@ -64,11 +47,6 @@ const Index = () => {
         };
       },
       pinType: scrollRef.current.style.transform ? "transform" : "fixed",
-    });
-
-    window.addEventListener("resize", () => {
-      scroll.update();
-      ScrollTrigger.refresh();
     });
 
     const t1 = gsap.timeline();
@@ -190,72 +168,16 @@ const Index = () => {
 
     t1.then(() => {
       setshowHome(true);
-      ScrollTrigger.refresh(); // Refresh after the timeline completes
-      scroll.update(); // Update LocomotiveScroll after content load
+      ScrollTrigger.refresh();
+      scroll.update(); 
     });
 
-    const ScrollTriggerSettings = {
-      trigger: ".index-main",
-      scroller: scrollRef.current,
-      start: "top 25%",
-      toggleActions: "play reverse play reverse",
-    };
-
-    const LeftXValues = [-800, -900, -400];
-    const rightXValues = [800, 900, 400];
-    const LeftRotationValues = [-30, -20, -35];
-    const RightRotationValues = [30, 20, 35];
-
-    gsap.utils.toArray(".row").forEach((row, index) => {
-      const cardLeft = row.querySelector(".card-left");
-      const cardRight = row.querySelector(".card-right");
-
-      gsap.to(cardLeft, {
-        x: LeftXValues[index],
-        scrollTrigger: {
-          trigger: ".index-main",
-          scroller: scrollRef.current,
-          start: "top center",
-          end: "150% bottom",
-          scrub: true,
-          onUpdate: (self) => {
-            const progress = self.progress;
-            cardLeft.style.transform = `translateX(${
-              progress * LeftXValues[index]
-            }px) rotate(${progress * LeftRotationValues[index]}deg)`;
-            cardRight.style.transform = `translateX(${
-              progress * rightXValues[index]
-            }px) rotate(${progress * RightRotationValues[index]}deg)`;
-          },
-        },
-      });
+    window.addEventListener("resize", () => {
+      scroll.update();
+      ScrollTrigger.refresh();
     });
 
-    gsap.to(".index-logo", {
-      scale: 1,
-      duration: 0.5,
-      ease: "power1.out",
-      scrollTrigger: ScrollTriggerSettings,
-    });
-
-    gsap.to(".index-line p", {
-      y: 0,
-      stagger: 0.1,
-      duration: 0.5,
-      ease: "power1.out",
-      scrollTrigger: ScrollTriggerSettings,
-    });
-
-    gsap.to("index-btn", {
-      y: 0,
-      opacity: 1,
-      delay: 0.25,
-      duration: 0.5,
-      ease: "power1.out",
-      scrollTrigger: ScrollTriggerSettings,
-    });
-
-    // Clean up on component unmount
+  
     return () => {
       if (scroll) scroll.destroy();
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
@@ -265,6 +187,39 @@ const Index = () => {
       });
     };
   }, [showHome]);
+
+
+  useEffect(() => {
+    
+    if(showHome){
+      const overlay = overlayRef.current;
+      const imagecontainer = imagecontainerRef.current;
+           imagecontainer.style.visibility = "visible";
+           const t2 = gsap.timeline({
+             scrollTrigger: {
+               trigger: imagecontainer,
+               start: "top center",
+               once: true,
+             },
+           });
+
+           t2.to(overlay, {
+             width: "0%",
+             ease: "power2.inOut",
+             duration: 1.4,
+           }).from(imageRef.current, {
+             scale: 1.6,
+             ease: "power2.inOut",
+             duration: 1,
+             delay: -1.4,
+           });
+
+           return () => {
+             t2.kill();
+           };
+    }
+ 
+  }, [showHome,imagecontainerRef,overlayRef,imageRef]);
 
   return (
     <>
@@ -293,46 +248,109 @@ const Index = () => {
           <div className="index_main_container_child_loader_div"></div>
         </div>
         {showHome && (
-          // <Home homeRef={homeRef}/>
           <>
             <div ref={homeRef}>
               <section className="index-hero" data-scroll-section>
-                <div className="index-hero-img">
-                  <img src={img1} alt="img1" />
+                <div className="hero-content-box">
+                  <h1> HII, I'M Aman Sharma</h1>
+                  <h3>FullStack Developer</h3>
+                  <p>
+                    Innovative Frontend & Backend Developer looking for an
+                    opportunity to advance my career with reputated brands.
+                    Expertise in ReactJS, NodeJS, HTML, Css, JavaScript, GSAP,
+                    MongoDB, MySQL, RestFull-API'S, AdobeXD, Figma, UI/UX
+                    Development & Designing, ThreeJS and many More.
+                  </p>
+
+                  <div className="dividediv">
+                    <p>Age - 24</p>
+                    <p>Nationallity - Indian</p>
+                  </div>
+
+                  <div className="dividediv">
+                    <p>Gender - Male</p>
+                    <p>Language - Hindi , English</p>
+                  </div>
+                  <div className="dividediv">
+                    <p>Phone - +916263571539</p>
+                    <p>Email - amansharma1503@gmail.com</p>
+                  </div>
+                  <div className="socialdiv">
+                    <Link
+                      style={{ textDecoration: "none" }}
+                      target="_blank"
+                      to="https://www.linkedin.com/in/amansharma1503/"
+                    >
+                      <button className="btn btn-outline-success">
+                        <i className="bi bi-linkedin"></i>
+                      </button>
+                    </Link>
+                    <Link
+                      style={{ textDecoration: "none" }}
+                      target="_blank"
+                      to="https://github.com/Amansh23"
+                    >
+                      <button className="btn btn-outline-success">
+                        <i className="bi bi-github"></i>
+                      </button>
+                    </Link>
+                    <Link
+                      style={{ textDecoration: "none" }}
+                      target="_blank"
+                      to="mail:amansharma1503@gmail.com"
+                    >
+                      <button className="btn btn-outline-success">
+                        <i className="bi bi-envelope-at-fill"></i>
+                      </button>
+                    </Link>
+                    <Link
+                      style={{ textDecoration: "none" }}
+                      target="_blank"
+                      to="https://twitter.com/aman_sharma2309"
+                    >
+                      <button className="btn btn-outline-success">
+                        <i className="bi bi-twitter-x"></i>
+                      </button>
+                    </Link>
+
+                    <Link
+                      style={{ textDecoration: "none" }}
+                      target="_blank"
+                      to="https://www.instagram.com/_aman_2309/"
+                    >
+                      <button className="btn btn-outline-success">
+                        <i className="bi bi-instagram"></i>
+                      </button>
+                    </Link>
+                    <Link
+                      style={{ textDecoration: "none" }}
+                      target="_blank"
+                      to="https://www.facebook.com/people/Aman-Sharma/pfbid0cX3kppbcEfGeeWehkuCxC1aVEZoLXd2o4bVrBdckXnEKH9wBQ72mSCsGUEzpFtWCl/"
+                    >
+                      <button className="btn btn-outline-success">
+                        <i className="bi bi-facebook"></i>
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+                <div ref={imagecontainerRef} className="profile_image">
+                  <div ref={overlayRef} className="img-overlay"></div>
+                  <img
+                    src="https://images.unsplash.com/photo-1729608462362-21193b628e56?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="ContainerImage"
+                    ref={imageRef}
+                  />
                 </div>
               </section>
 
               <section className="index-main" data-scroll-section>
-                <div className="index-main-content">
-                  <div className="index-logo">
-                    <img src={img2} alt="img2" />
-                  </div>
-                  <div className="index-copy">
-                    <div className="index-line">
-                      <p>Deliver into coding without clutter.</p>
-                    </div>
-                    <div className="index-line">
-                      <p>Deliver into coding without clutter.</p>
-                    </div>
-                    <div className="index-line">
-                      <p>Deliver into coding without clutter.</p>
-                    </div>
-                  </div>
-                  <div className="index-btn">
-                    <button>Get PRO</button>
-                  </div>
-                </div>
-                {generateRows()}
+                <Projects />
               </section>
-
-              <section className="index-footer" data-scroll-section>
-                <Link
-                  className="index-footer-link"
-                  to="codegrid.gumroad.com/l/codegridpro"
-                  target="_blank"
-                >
-                  Link in the Description
-                </Link>
+              <section className="index-main" data-scroll-section>
+                <Certificates />
+              </section>
+              <section className="index-main" data-scroll-section>
+                <ExperienceCont />
               </section>
             </div>
           </>
